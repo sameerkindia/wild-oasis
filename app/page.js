@@ -1,9 +1,11 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1 className="text-9xl">Wild Oasis</h1>
+    <div>
+      <h1>The Wild Oasis. Welcome to paradise.</h1>
+
+      <Link href="/cabins">Explore luxury cabins</Link>
     </div>
   );
 }
