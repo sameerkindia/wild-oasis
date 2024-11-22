@@ -1,6 +1,9 @@
 
-export default function Page() {
+export const metadata = {
+  title : 'Cabin'
+}
 
+export default function Page() {
 
   return (
     <div>
