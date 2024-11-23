@@ -9,6 +9,8 @@ export default async function Page() {
   // CHANGE
   const cabins = await getCabins()
 
+  // const cabins = [];
+
   console.log(cabins)
 
   return (
