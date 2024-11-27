@@ -1,3 +1,4 @@
+import TextExpander from "@/components/TextExpander";
 import { getCabin, getCabins } from "@/lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
@@ -14,6 +15,8 @@ import Image from "next/image";
 //   image:
 //     "https://dclaevazetcjjkrzczpc.supabase.co/storage/v1/object/public/cabin-images/cabin-001.jpg",
 // };
+
+// export const revalidate = 0;
 
 export async function generateMetadata({params}){
   const {name} = await getCabin(params.cabinId);
@@ -48,7 +51,11 @@ export default async function Page({params}) {
             Cabin {name}
           </h3>
 
-          <p className="text-lg text-primary-300 mb-10">{description}</p>
+          <p className="text-lg text-primary-300 mb-10">
+            <TextExpander>
+            {description}
+            </TextExpander>
+            </p>
 
           <ul className="flex flex-col gap-4 mb-7">
             <li className="flex gap-3 items-center">
