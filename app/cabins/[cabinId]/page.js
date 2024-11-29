@@ -1,7 +1,15 @@
+import Reservation from "@/components/Reservation";
+import Spinner from "@/components/Spinner";
 import TextExpander from "@/components/TextExpander";
-import { getCabin, getCabins } from "@/lib/data-service";
+import {
+  getBookedDatesByCabinId,
+  getCabin,
+  getCabins,
+  getSettings,
+} from "@/lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { Suspense } from "react";
 
 // PLACEHOLDER DATA
 // const cabin = {
@@ -18,23 +26,30 @@ import Image from "next/image";
 
 // export const revalidate = 0;
 
-export async function generateMetadata({params}){
-  const {name} = await getCabin(params.cabinId);
+export async function generateMetadata({ params }) {
+  const { name } = await getCabin(params.cabinId);
 
-  return {title : `Cabin ${name}`}
+  return { title: `Cabin ${name}` };
 }
 
-export async function generateStaticParams(){
-  const cabins = await getCabins()
+export async function generateStaticParams() {
+  const cabins = await getCabins();
 
-  const ids = cabins.map((cabin)=>({cabinId:String(cabin.id)}))
+  const ids = cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
 
-  return ids
+  return ids;
 }
 
-export default async function Page({params}) {
+export default async function Page({ params }) {
+  const cabin = await getCabin(params.cabinId);
+  // const settings = await getSettings()
+  // const bookedDates = await getBookedDatesByCabinId(params.cabinId)
 
-  const cabin = await getCabin(params.cabinId)
+  // const [cabin, settings, bookedDates] = await Promise.all([
+  //   getCabin(params.cabinId),
+  //   getSettings(),
+  //   getBookedDatesByCabinId(params.cabinId),
+  // ]);
 
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
@@ -43,7 +58,12 @@ export default async function Page({params}) {
     <div className="max-w-6xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
         <div className="relative scale-[1.15] -translate-x-3">
-          <Image fill src={image} alt={`Cabin ${name}`} className="object-cover" />
+          <Image
+            fill
+            src={image}
+            alt={`Cabin ${name}`}
+            className="object-cover"
+          />
         </div>
 
         <div>
@@ -52,10 +72,8 @@ export default async function Page({params}) {
           </h3>
 
           <p className="text-lg text-primary-300 mb-10">
-            <TextExpander>
-            {description}
-            </TextExpander>
-            </p>
+            <TextExpander>{description}</TextExpander>
+          </p>
 
           <ul className="flex flex-col gap-4 mb-7">
             <li className="flex gap-3 items-center">
@@ -83,9 +101,13 @@ export default async function Page({params}) {
       </div>
 
       <div>
-        <h2 className="text-5xl font-semibold text-center">
-          Reserve today. Pay on arrival.
+        <h2 className="text-5xl font-semibold text-center mb-10 text-accent-400">
+          Reserve {name} today. Pay on arrival.
         </h2>
+
+        <Suspense fallback={<Spinner />}>
+          <Reservation cabin={cabin} />
+        </Suspense>
       </div>
     </div>
   );
