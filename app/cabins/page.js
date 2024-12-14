@@ -14,7 +14,7 @@ export const metadata = {
 
 export default async function Page({searchParams}) {
 
-  const cabinMongo = await getAllCabin()
+  // const cabinMongo = await getAllCabin()
 
   // console.log('Cabin From MongoDB ', cabinMongo)
 
