@@ -15,7 +15,6 @@ export default async function Page() {
 
   const cabins = await getCabins();
 
-  // let totalCabins = cabins.length;
 
   return (
     <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
