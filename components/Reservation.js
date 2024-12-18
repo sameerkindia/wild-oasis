@@ -5,6 +5,7 @@ import LoginMessage from "./LoginMessage";
 import { auth } from "@/lib/auth";
 
 async function Reservation({ cabin }) {
+  console.log('this is Cabin => ', cabin)
   const [settings, bookedDates] = await Promise.all([
     getSettings(),
     getBookedDatesByCabinId(cabin.id),
