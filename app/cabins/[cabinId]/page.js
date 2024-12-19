@@ -29,15 +29,19 @@ import { Suspense } from "react";
 
 export async function generateMetadata({ params }) {
   // const { name } = await getCabin(params.cabinId);
-  const { name } = await getOneCabin(params.cabinId)
+  const { name } = await getOneCabin(params.cabinId);
+  // const cabin = await getOneCabin(params.cabinId);
+
+  // console.log('cabin from metadata ', cabin);
+
 
   return { title: `Cabin ${name}` };
+  // return { title: `Cabin with Id` };
 }
 
 export async function generateStaticParams() {
   // const cabins = await getCabins();
-  const cabins = await getAllCabin()
-
+  const cabins = await getAllCabin();
 
   const ids = cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
 
@@ -45,13 +49,10 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-
   // const cabinMdB = await getOneCabin(params.cabinId)
-  const cabin = await getOneCabin(params.cabinId)
+  const cabin = await getOneCabin(params.cabinId);
 
-
-  console.log('CabinMDB ', cabin )
-
+  console.log("CabinMDB ", cabin);
 
   // const cabin = await getCabin(params.cabinId);
   // const settings = await getSettings()
@@ -64,10 +65,12 @@ export default async function Page({ params }) {
   // ]);
 
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
-    cabin;
+    cabin[0];
 
-    // console.log('this is description ' , cabin.description)
-    // description
+  console.log('this is description ' , description)
+  console.log('this is id ' , id)
+  console.log('this is name ' , name)
+  // description
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
@@ -87,7 +90,7 @@ export default async function Page({ params }) {
           </h3>
 
           <p className="text-lg text-primary-300 mb-10">
-            {/* <TextExpander>{description}</TextExpander> */}
+            <TextExpander>{description}</TextExpander>
           </p>
 
           <ul className="flex flex-col gap-4 mb-7">
@@ -120,9 +123,10 @@ export default async function Page({ params }) {
           Reserve {name} today. Pay on arrival.
         </h2>
 
-        
+        {/* <Suspense fallback={<Spinner />}>
+          <Reservation cabin={cabin[0]} />
+        </Suspense> */}
       </div>
     </div>
   );
 }
-

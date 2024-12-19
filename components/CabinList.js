@@ -15,7 +15,7 @@ async function CabinList({ filter }) {
 
   // const cabins = await getCabins();
 
-  console.log('this ', cabins)
+  // console.log('this ', cabins)
 
   if (!cabins) return null;
 
