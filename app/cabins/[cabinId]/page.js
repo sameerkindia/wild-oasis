@@ -32,11 +32,7 @@ export async function generateMetadata({ params }) {
   const { name } = await getOneCabin(params.cabinId);
   // const cabin = await getOneCabin(params.cabinId);
 
-  // console.log('cabin from metadata ', cabin);
-
-
   return { title: `Cabin ${name}` };
-  // return { title: `Cabin with Id` };
 }
 
 export async function generateStaticParams() {
@@ -52,7 +48,7 @@ export default async function Page({ params }) {
   // const cabinMdB = await getOneCabin(params.cabinId)
   const cabin = await getOneCabin(params.cabinId);
 
-  console.log("CabinMDB ", cabin);
+  // console.log("CabinMDB ", cabin);
 
   // const cabin = await getCabin(params.cabinId);
   // const settings = await getSettings()
@@ -65,11 +61,16 @@ export default async function Page({ params }) {
   // ]);
 
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
-    cabin[0];
+    cabin;
 
-  console.log('this is description ' , description)
-  console.log('this is id ' , id)
-  console.log('this is name ' , name)
+  const plainCabin = JSON.parse(JSON.stringify(cabin))
+
+  // console.log("This was row cabin ", cabin)
+  // console.log("This was plain cabin ", plainCabin)
+
+  // console.log('this is description ' , description)
+  // console.log('this is id ' , id)
+  // console.log('this is name ' , name)
   // description
 
   return (
@@ -123,9 +124,9 @@ export default async function Page({ params }) {
           Reserve {name} today. Pay on arrival.
         </h2>
 
-        {/* <Suspense fallback={<Spinner />}>
-          <Reservation cabin={cabin[0]} />
-        </Suspense> */}
+        <Suspense fallback={<Spinner />}>
+          <Reservation cabin={plainCabin} />
+        </Suspense>
       </div>
     </div>
   );
