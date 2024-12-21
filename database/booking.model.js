@@ -14,8 +14,10 @@ const bookingsSchema = new mongoose.Schema({
   hasBreakfast: { type: Boolean, required: true, default: false },
   isPaid: { type: Boolean, required: true, default: false },
   observations: { type: String },
-  cabinId: { type: mongoose.Schema.Types.ObjectId, ref: 'Cabin', required: true }, // Assuming Cabin is another model
-  guestId: { type: mongoose.Schema.Types.ObjectId, ref: 'Guest', required: true } // Assuming Guest is another model
+  cabinId: {type: Number},
+  guestId: {type: Number}
+  // cabinId: { type: mongoose.Schema.Types.ObjectId, ref: 'Cabin', required: true }, // Assuming Cabin is another model
+  // guestId: { type: mongoose.Schema.Types.ObjectId, ref: 'Guest', required: true } // Assuming Guest is another model
 });
 
 // module.exports = mongoose.model('Booking', bookingSchema);

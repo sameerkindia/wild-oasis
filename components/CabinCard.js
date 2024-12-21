@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 function CabinCard({ cabin }) {
-  console.log("this is CAbin Card ", cabin);
+  // console.log("this is CAbin Card ", cabin);
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (

@@ -14,12 +14,16 @@ async function Reservation({ cabin }) {
   // console.log('this is Cabin => ', cabin)
   const [settings, bookedDates] = await Promise.all([
     getSettings(),
-    getBookedDatesByCabinId(cabin.id),
+    getBookedDatesByCabinIdServer(cabin.id)
   ]);
 
-  const thisData = await getBookedDatesByCabinIdServer(cabin.id);
+  // const thisData = await getBookedDatesByCabinIdServer(cabin.id);
 
-  console.log("this Data  " , thisData)
+  // console.log("this Data  " , thisData)
+
+  // getBookedDatesByCabinId(cabin.id),
+
+  // console.log(bookedDates)
 
   const session = await auth();
 
