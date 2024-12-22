@@ -2,13 +2,14 @@ import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { format, formatDistance, isPast, isToday, parseISO } from "date-fns";
 import DeleteReservation from "./DeleteReservation";
 import Link from "next/link";
+import { getOneCabin } from "@/lib/actions";
 
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
     addSuffix: true,
   }).replace("about ", "");
 
-function ReservationCard({ booking, onDelete }) {
+async function ReservationCard({ booking, onDelete }) {
   const {
     id,
     guestId,
@@ -19,8 +20,16 @@ function ReservationCard({ booking, onDelete }) {
     numGuests,
     status,
     created_at,
-    cabins: { name, image },
+    cabin:{ name, image }
   } = booking;
+
+  // const { name, image } = await getOneCabin(id);
+  // console.log(name , "this is calling")
+
+  // cabins: ,
+
+
+  // {name}
 
   return (
     <div className="flex border border-primary-800">

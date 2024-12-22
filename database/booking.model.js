@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const bookingsSchema = new mongoose.Schema({
-  id: { type: Number, required: true },
+  id: { type: Number },
   created_at: { type: Date, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
@@ -10,7 +10,7 @@ const bookingsSchema = new mongoose.Schema({
   cabinPrice: { type: Number, required: true },
   extraPrice: { type: Number, required: true, default: 0 },
   totalPrice: { type: Number, required: true },
-  status: { type: String, enum: ['pending', 'confirmed', 'cancelled'], default: 'pending', required: true }, 
+  status: { type: String, enum: ['pending', 'confirmed', 'cancelled', 'unconfirmed'], default: 'pending', required: true }, 
   hasBreakfast: { type: Boolean, required: true, default: false },
   isPaid: { type: Boolean, required: true, default: false },
   observations: { type: String },
