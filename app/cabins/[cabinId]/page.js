@@ -60,7 +60,7 @@ export default async function Page({ params }) {
   //   getBookedDatesByCabinId(params.cabinId),
   // ]);
 
-  const { id, name, maxCapacity, regularPrice, discount, image, description } =
+  const { _id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
 
   const plainCabin = JSON.parse(JSON.stringify(cabin))

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function CabinCard({ cabin }) {
   // console.log("this is CAbin Card ", cabin);
-  const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
+  const { _id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
     <div className="flex border-primary-800 border">
@@ -50,7 +50,7 @@ function CabinCard({ cabin }) {
 
         <div className="bg-primary-950 border-t border-t-primary-800 text-right">
           <Link
-            href={`/cabins/${id}`}
+            href={`/cabins/${_id}`}
             className="border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
           >
             Details & reservation &rarr;

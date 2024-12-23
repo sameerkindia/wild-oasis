@@ -6,13 +6,11 @@ import { getBookings } from "@/lib/data-service";
 
 export default async function Page() {
   const session = await auth();
-  // console.log(session)
-  // const bookings = await getBookings(session.user.guestId)
   const bookings = await getGuestBookings(session.user.guestId)
 
   // const plainBookings = JSON.parse(JSON.stringify(bookings))
 
-  console.log("Guest bookings ", bookings)
+  // console.log("Guest bookings ", bookings)
 
   // CHANGE
   // const bookings = [];

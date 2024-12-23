@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const bookingsSchema = new mongoose.Schema({
-  id: { type: Number },
   created_at: { type: Date, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
@@ -14,11 +13,15 @@ const bookingsSchema = new mongoose.Schema({
   hasBreakfast: { type: Boolean, required: true, default: false },
   isPaid: { type: Boolean, required: true, default: false },
   observations: { type: String },
-  cabinId: {type: Number},
+  cabinId: {type: String},
   guestId: {type: Number}
   // cabinId: { type: mongoose.Schema.Types.ObjectId, ref: 'Cabin', required: true }, // Assuming Cabin is another model
   // guestId: { type: mongoose.Schema.Types.ObjectId, ref: 'Guest', required: true } // Assuming Guest is another model
 });
+
+// _id: {
+//   type: mongoose.Schema.Types.ObjectId,
+// },
 
 // module.exports = mongoose.model('Booking', bookingSchema);
 

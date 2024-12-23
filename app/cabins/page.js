@@ -2,7 +2,6 @@ import CabinList from "@/components/CabinList";
 import Filter from "@/components/Filter";
 import ReservationReminder from "@/components/ReservationReminder";
 import Spinner from "@/components/Spinner";
-import { getAllCabin } from "@/lib/actions";
 import { Suspense } from "react";
 
 export const revalidate = 3600;
@@ -13,11 +12,6 @@ export const metadata = {
 };
 
 export default async function Page({searchParams}) {
-
-  // const cabinMongo = await getAllCabin()
-
-  // console.log('Cabin From MongoDB ', cabinMongo)
-
 
   const filter = searchParams?.capacity ?? 'all'
 
