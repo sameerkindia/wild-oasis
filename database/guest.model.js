@@ -18,15 +18,15 @@ const guestSchema = new mongoose.Schema({
   nationality: {
     type: String
   },
-  country_flag: {
+  countryFlag: {
     type: String
   },
-  nationalId: {
+  nationalID: {
     type: String
   }
 });
 
-const Guests = mongoose.models.guests || mongoose.model('guests', guestSchema);
+const Guests = mongoose.models?.guests || mongoose.model('guests', guestSchema);
 
 module.exports = Guests;
 

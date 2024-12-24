@@ -40,6 +40,6 @@ const cabinSchema = new mongoose.Schema({
 // Remove the redundant `id` field as it's likely managed by MongoDB internally
 // id: { type: Number, required: true },
 
-const Cabins = mongoose.models.cabins || mongoose.model("cabins", cabinSchema);
+const Cabins = mongoose.models?.cabins || mongoose.model("cabins", cabinSchema);
 
 module.exports = Cabins;

@@ -14,7 +14,7 @@ const bookingsSchema = new mongoose.Schema({
   isPaid: { type: Boolean, required: true, default: false },
   observations: { type: String },
   cabinId: {type: String},
-  guestId: {type: Number}
+  guestId: {type: mongoose.Schema.Types.ObjectId}
   // cabinId: { type: mongoose.Schema.Types.ObjectId, ref: 'Cabin', required: true }, // Assuming Cabin is another model
   // guestId: { type: mongoose.Schema.Types.ObjectId, ref: 'Guest', required: true } // Assuming Guest is another model
 });
@@ -25,6 +25,6 @@ const bookingsSchema = new mongoose.Schema({
 
 // module.exports = mongoose.model('Booking', bookingSchema);
 
-const Bookings = mongoose.models.bookings || mongoose.model('bookings', bookingsSchema);
+const Bookings = mongoose.models?.bookings || mongoose.model('bookings', bookingsSchema);
 
 module.exports = Bookings ;
