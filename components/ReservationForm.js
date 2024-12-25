@@ -8,7 +8,10 @@ import SubmitButton from "./SubmitButton";
 function ReservationForm({ cabin, user }) {
   const { range, resetRange } = useReservation();
   // CHANGE
-  const { maxCapacity, regularPrice, discount, id } = cabin;
+  const { maxCapacity, regularPrice, discount, _id } = cabin;
+
+  console.log("this is cabin ID" , _id)
+  console.log(typeof _id)
 
   // console.log('range ' , range)
 
@@ -23,7 +26,7 @@ function ReservationForm({ cabin, user }) {
     endDate,
     numNights,
     cabinPrice,
-    cabinId: id,
+    cabinId: _id,
   };
 
   // console.log('Booking Data ',bookingData)

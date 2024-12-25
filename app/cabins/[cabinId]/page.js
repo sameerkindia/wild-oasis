@@ -1,6 +1,7 @@
 import Reservation from "@/components/Reservation";
 import Spinner from "@/components/Spinner";
 import TextExpander from "@/components/TextExpander";
+import { getAllCabin, getOneCabin } from "@/lib/actions";
 import {
   getBookedDatesByCabinId,
   getCabin,
@@ -27,13 +28,16 @@ import { Suspense } from "react";
 // export const revalidate = 0;
 
 export async function generateMetadata({ params }) {
-  const { name } = await getCabin(params.cabinId);
+  // const { name } = await getCabin(params.cabinId);
+  const { name } = await getOneCabin(params.cabinId);
+  // const cabin = await getOneCabin(params.cabinId);
 
   return { title: `Cabin ${name}` };
 }
 
 export async function generateStaticParams() {
-  const cabins = await getCabins();
+  // const cabins = await getCabins();
+  const cabins = await getAllCabin();
 
   const ids = cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
 
@@ -41,7 +45,12 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const cabin = await getCabin(params.cabinId);
+  // const cabinMdB = await getOneCabin(params.cabinId)
+  const cabin = await getOneCabin(params.cabinId);
+
+  // console.log("CabinMDB ", cabin);
+
+  // const cabin = await getCabin(params.cabinId);
   // const settings = await getSettings()
   // const bookedDates = await getBookedDatesByCabinId(params.cabinId)
 
@@ -51,8 +60,18 @@ export default async function Page({ params }) {
   //   getBookedDatesByCabinId(params.cabinId),
   // ]);
 
-  const { id, name, maxCapacity, regularPrice, discount, image, description } =
+  const { _id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
+
+  const plainCabin = JSON.parse(JSON.stringify(cabin))
+
+  // console.log("This was row cabin ", cabin)
+  // console.log("This was plain cabin ", plainCabin)
+
+  // console.log('this is description ' , description)
+  // console.log('this is id ' , id)
+  // console.log('this is name ' , name)
+  // description
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
@@ -106,7 +125,7 @@ export default async function Page({ params }) {
         </h2>
 
         <Suspense fallback={<Spinner />}>
-          <Reservation cabin={cabin} />
+          <Reservation cabin={plainCabin} />
         </Suspense>
       </div>
     </div>

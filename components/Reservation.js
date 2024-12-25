@@ -1,14 +1,35 @@
+
 import { getBookedDatesByCabinId, getSettings } from "@/lib/data-service";
 import DateSelector from "./DateSelector";
 import ReservationForm from "./ReservationForm";
 import LoginMessage from "./LoginMessage";
 import { auth } from "@/lib/auth";
+import { getBookedDatesByCabinIdMDB, getBookedDatesByCabinIdServer, getSettingsServer } from "@/lib/actions";
+// import { getBookedDatesByCabinId } from "@/lib/actions";
 
 async function Reservation({ cabin }) {
+
+  
+
+  // console.log('this is Cabin => ', cabin)
   const [settings, bookedDates] = await Promise.all([
-    getSettings(),
-    getBookedDatesByCabinId(cabin.id),
+    getSettingsServer(),
+    getBookedDatesByCabinIdServer(cabin.id)
   ]);
+
+  // const settingServer = await getSettingsServer()
+
+  // console.log("Setting from server " , settingServer)
+  // console.log("Setting from supabase " , settings)
+
+  // const thisData = await getBookedDatesByCabinIdServer(cabin.id);
+
+  // console.log("this Data  " , thisData)
+
+  // getBookedDatesByCabinId(cabin.id),
+  // getSettings()
+
+  // console.log(bookedDates)
 
   const session = await auth();
 

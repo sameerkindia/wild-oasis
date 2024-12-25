@@ -3,6 +3,7 @@ import Image from "next/image";
 import image1 from '/public/about-1.jpg'
 import image2 from '/public/about-2.jpg'
 import { getCabins } from "@/lib/data-service";
+import { getAllCabin } from "@/lib/actions";
 
 
 export const revalidate = 86400;
@@ -13,7 +14,9 @@ export const metadata = {
 
 export default async function Page() {
 
-  const cabins = await getCabins();
+  // const cabins = await getCabins();
+
+  const cabins = await getAllCabin()
 
   // let totalCabins = cabins.length;
 

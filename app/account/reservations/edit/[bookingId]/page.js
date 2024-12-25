@@ -1,13 +1,14 @@
 import SubmitButton from "@/components/SubmitButton";
-import { updateBooking } from "@/lib/actions";
+import { getGuestBookings, getOneBooking, getOneCabin, updateBooking } from "@/lib/actions";
 import { getBooking, getCabin } from "@/lib/data-service";
 
 export default async function Page({params}) {
-  // console.log(params.id)
   const {bookingId} = params
 
-  const {numGuests, observations, cabinId} = await getBooking(bookingId)
-  const {maxCapacity} = await getCabin(cabinId)
+  // const {numGuests, observations, cabinId} = await getBooking(bookingId)
+  const {numGuests, observations, cabinId} = await getOneBooking(bookingId)
+  console.log("cabinID " , cabinId)
+  const {maxCapacity} = await getOneCabin(cabinId)
 
   // CHANGE
   // const maxCapacity = cabin.maxCapacity;

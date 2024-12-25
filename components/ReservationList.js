@@ -6,7 +6,9 @@ import {useOptimistic} from 'react'
 
 function ReservationList({ bookings }) {
 
-  const [optimisticBooking, optimisticDelete] = useOptimistic(bookings , (curBooking, bookingId)=>{ return curBooking.filter(booking => booking.id !== bookingId)})
+  console.log(bookings , " this is bookings from reservation")
+
+  const [optimisticBooking, optimisticDelete] = useOptimistic(bookings , (curBooking, bookingId)=>{ return curBooking.filter(booking => booking._id !== bookingId)})
 
   async function handleDelete(bookingId) {
     optimisticDelete(bookingId)
@@ -16,7 +18,7 @@ function ReservationList({ bookings }) {
   return (
     <ul className="space-y-6">
       {optimisticBooking.map((booking) => (
-        <ReservationCard booking={booking} key={booking.id} onDelete={handleDelete} />
+        <ReservationCard booking={JSON.parse(JSON.stringify(booking))} key={booking._id} onDelete={handleDelete} />
       ))}
     </ul>
   );
