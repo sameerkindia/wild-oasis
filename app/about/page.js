@@ -12,6 +12,10 @@ export const metadata = {
   title : 'About'
 }
 
+export const config = {
+  runtime: "nodejs", // Use Node.js runtime
+};
+
 export default async function Page() {
 
   // const cabins = await getCabins();
