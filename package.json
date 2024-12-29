@@ -13,7 +13,7 @@
     "@heroicons/react": "^2.2.0",
     "@supabase/supabase-js": "^2.46.1",
     "date-fns": "^4.1.0",
-    "mongodb": "^6.11.0",
+    "mongodb": "^5.9.2",
     "mongoose": "^8.8.4",
     "next": "14.2.18",
     "next-auth": "^5.0.0-beta.25",

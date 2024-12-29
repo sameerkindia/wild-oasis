@@ -8,7 +8,10 @@ function ReservationList({ bookings }) {
 
   console.log(bookings , " this is bookings from reservation")
 
-  const [optimisticBooking, optimisticDelete] = useOptimistic(bookings , (curBooking, bookingId)=>{ return curBooking.filter(booking => booking._id !== bookingId)})
+  const [optimisticBooking, optimisticDelete] = useOptimistic(bookings , (curBooking, bookingId)=>{
+    // console.log(typeof bookingId , " this is booking id from useOptimistic hook")
+    // console.log( typeof curBooking[1]._id, "This is currunt booking")
+    return curBooking.filter(booking => booking._id != bookingId)})
 
   async function handleDelete(bookingId) {
     optimisticDelete(bookingId)
