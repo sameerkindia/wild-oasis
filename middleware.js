@@ -6,7 +6,7 @@ export const middleware = auth
 
 export const config = {
   runtime: "nodejs",
-  // matcher: ["/account"]
-  matcher: ["/about"]
+  matcher: ["/account"]
+  // matcher: ["/about"]
 
 }

@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    runtime: 'nodejs', // Use Node.js runtime
-  },
   images: {
     remotePatterns: [
       {
@@ -14,14 +11,20 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config) => {
-    config.resolve.fallback = {
-      aws4: false,
-      socks: false,
-      "mongodb-client-encryption": false,
-    };
-    return config;
-  },
 };
 
 export default nextConfig;
+
+
+// experimental: {
+//   runtime: 'nodejs', // Use Node.js runtime
+// },
+
+// webpack: (config) => {
+//   config.resolve.fallback = {
+//     aws4: false,
+//     socks: false,
+//     "mongodb-client-encryption": false,
+//   };
+//   return config;
+// },
