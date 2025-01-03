@@ -6,7 +6,7 @@ import {useOptimistic} from 'react'
 
 function ReservationList({ bookings }) {
 
-  console.log(bookings , " this is bookings from reservation")
+  // console.log(bookings , " this is bookings from reservation")
 
   const [optimisticBooking, optimisticDelete] = useOptimistic(bookings , (curBooking, bookingId)=>{
     // console.log(typeof bookingId , " this is booking id from useOptimistic hook")

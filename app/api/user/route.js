@@ -35,6 +35,7 @@
 // }
 
 
+import { auth } from "@/lib/auth";
 import { connectToDatabase } from "@/lib/mongooes";
 
 export async function POST(request) {
@@ -51,6 +52,13 @@ export async function POST(request) {
     if (!userExists) {
       // Insert the new user into the database
       const result = await db.collection("guests").insertOne({ email, name });
+
+      // const session = await auth()
+      // session.user.guestId = result.ops[0]._id
+
+      // console.log(result , "this is from post")
+      // console.log(auth , "this is from post endpoint")
+
       return new Response(
         JSON.stringify({
           success: true,
@@ -83,6 +91,10 @@ export async function GET() {
 
     // Fetch all users
     const users = await db.collection("guests").find({}).toArray();
+
+    // const session = await auth()
+    // session.user.guestId = users[0]._id
+
 
     return new Response(
       JSON.stringify({ success: true, users }),
