@@ -53,16 +53,10 @@ export async function POST(request) {
       // Insert the new user into the database
       const result = await db.collection("guests").insertOne({ email, name });
 
-      // const session = await auth()
-      // session.user.guestId = result.ops[0]._id
-
-      // console.log(result , "this is from post")
-      // console.log(auth , "this is from post endpoint")
-
       return new Response(
         JSON.stringify({
           success: true,
-          user: result.ops[0], // `ops` is used in older MongoDB versions; adjust based on your driver version.
+          user: result, // `ops` is used in older MongoDB versions; adjust based on your driver version.
         }),
         { status: 201, headers: { "Content-Type": "application/json" } }
       );
@@ -84,26 +78,30 @@ export async function POST(request) {
   }
 }
 
-export async function GET() {
+export async function GET(req,res) {
+  const { searchParams } = new URL(req.url);
+  const email = searchParams.get('email');
   try {
     const client = await connectToDatabase();
     const db = client.db("wild-oasis");
 
     // Fetch all users
-    const users = await db.collection("guests").find({}).toArray();
+    // const users = await db.collection("guests").find({}).toArray();
+    const user = await db.collection("guests").findOne({email : email});
+
 
     // const session = await auth()
     // session.user.guestId = users[0]._id
 
 
     return new Response(
-      JSON.stringify({ success: true, users }),
+      JSON.stringify({ success: true, user }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
   } catch (error) {
     console.error("Database Error:", error);
     return new Response(
-      JSON.stringify({ success: false, error: "Database Error" }),
+      JSON.stringify({ success: false, error: "Database Error" , request : req , searchParams , email }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
