@@ -6,7 +6,8 @@ import {
   getOneCabin,
   updateBooking,
 } from "@/lib/actions";
-import { getBooking, getCabin } from "@/lib/data-service";
+import { updateCabin } from "@/lib/cabin-action";
+// import { getBooking, getCabin } from "@/lib/data-service";
 
 export default async function Page({ params }) {
   const { id } = params;
@@ -25,7 +26,7 @@ export default async function Page({ params }) {
       </h2>
 
       <form
-        action={updateBooking}
+        action={updateCabin}
         className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
       >
         <input className="hidden" name="_id" value={id} />
@@ -77,8 +78,21 @@ export default async function Page({ params }) {
           />
         </div>
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <ImageUpload previewImage={image} />
+        </div> */}
+
+        <div className="space-y-2">
+          <label htmlFor="image">Upload Image</label>
+          <input
+            type="file"
+            name="image"
+            id="image"
+            accept="image/*"
+            // onChange={handleImageChange}
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            required
+          />
         </div>
 
         <div className="space-y-2">
@@ -92,7 +106,7 @@ export default async function Page({ params }) {
 
         <div className="flex justify-end items-center gap-6">
           <SubmitButton pendingLabel="Updating...">
-            Update reservation
+            Update cabin
           </SubmitButton>
 
           {/* <button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">

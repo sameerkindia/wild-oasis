@@ -1,4 +1,3 @@
-import ImageUpload from '@/components/ImageUpload';
 import SubmitButton from '@/components/SubmitButton';
 import { createCabin } from '@/lib/cabin-action';
 import React from 'react'

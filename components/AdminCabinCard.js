@@ -6,15 +6,24 @@ import Link from "next/link";
 function AdminCabinCard({ cabin }) {
   const { _id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
+  let imageData = cabin.image?.data?.toString("base64");
+  console.log(imageData, " this is object");
+
   return (
     <div className="flex border-primary-800 border">
       <div className="relative flex-1">
-        <Image
-          src={image}
-          fill
-          alt={`Cabin ${name}`}
-          className="border-r border-primary-800 object-cover"
-        />
+        {imageData ? (
+          <Image src={`data:image/png;base64,${imageData}`} fill alt={image?.filename} className="border-r border-primary-800 object-cover" />
+        ) : (
+          <Image
+            src={image}
+            fill
+            alt={`Cabin ${name}`}
+            className="border-r border-primary-800 object-cover"
+          />
+        )}
+
+        {/* <img src={`data:image/png;base64,${imageData}`} alt="Test Image" /> */}
       </div>
 
       <div className="flex-grow">
