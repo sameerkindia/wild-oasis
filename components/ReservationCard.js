@@ -2,6 +2,7 @@ import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { format, formatDistance, isPast, isToday, parseISO } from "date-fns";
 import DeleteReservation from "./DeleteReservation";
 import Link from "next/link";
+import Image from "next/image";
 
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
@@ -22,15 +23,18 @@ async function ReservationCard({ booking, onDelete }) {
     cabin:{ name, image }
   } = booking;
 
+  let imageData = image?.data?.toString("base64");
+
 
   return (
     <div className="flex border border-primary-800">
       <div className="relative h-32 aspect-square">
-        <img
+        <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
+        {/* <img
           src={image}
           alt={`Cabin ${name}`}
           className="object-cover border-r border-primary-800"
-        />
+        /> */}
       </div>
 
       <div className="flex-grow px-6 py-3 flex flex-col">

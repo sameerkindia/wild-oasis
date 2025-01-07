@@ -63,6 +63,8 @@ export default async function Page({ params }) {
   const { _id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
 
+  let imageData = image?.data?.toString("base64");
+
   const plainCabin = JSON.parse(JSON.stringify(cabin))
 
   // console.log("This was row cabin ", cabin)
@@ -77,12 +79,15 @@ export default async function Page({ params }) {
     <div className="max-w-6xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
         <div className="relative scale-[1.15] -translate-x-3">
-          <Image
+          {/* <Image
             fill
             src={image}
             alt={`Cabin ${name}`}
             className="object-cover"
-          />
+          /> */}
+
+          <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
+
         </div>
 
         <div>
