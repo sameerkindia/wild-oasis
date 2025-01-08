@@ -9,8 +9,8 @@ function CabinCard({ cabin }) {
   let imageData = image?.data?.toString("base64");
 
   return (
-    <div className="flex border-primary-800 border">
-      <div className="relative w-40">
+    <div className="flex 2md:flex-row flex-col border-primary-800 border">
+      <div className="relative h-40 2md:h-[unset] w-full 2md:w-40">
         <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
       {/* <Image
         src={image}
@@ -20,7 +20,6 @@ function CabinCard({ cabin }) {
       /> */}
       </div>
       
-
       <div className="flex-grow">
         <div className="pt-5 pb-4 px-7 bg-primary-950">
           <h3 className="text-accent-500 font-semibold text-xl desktop:text-2xl mb-3">
