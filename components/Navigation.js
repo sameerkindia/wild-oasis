@@ -4,9 +4,16 @@ import Link from "next/link";
 export default async function Navigation() {
   const session = await auth()
 
+  console.log(session)
+
   return (
     <nav className="z-10 text-xl">
-      <ul className="flex gap-16 items-center">
+      <ul className="flex gap-6 2md:gap-12 lg:gap-16 items-center">
+        {session?.user?.admin && <li>
+          <Link href="/admin" className="hover:text-accent-400 transition-colors">
+            Admin
+          </Link>
+        </li>}
         <li>
           <Link href="/cabins" className="hover:text-accent-400 transition-colors">
             Cabins
