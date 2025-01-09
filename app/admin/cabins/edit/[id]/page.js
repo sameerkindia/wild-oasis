@@ -82,7 +82,7 @@ export default async function Page({ params }) {
           <ImageUpload previewImage={image} />
         </div> */}
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <label htmlFor="image">Upload Image</label>
           <input
             type="file"
@@ -93,7 +93,7 @@ export default async function Page({ params }) {
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
             required
           />
-        </div>
+        </div> */}
 
         <div className="space-y-2">
           <label htmlFor="description">description</label>
