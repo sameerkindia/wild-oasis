@@ -10,8 +10,10 @@ function AdminCabinCard({ cabin }) {
 
   return (
     <div className="flex border-primary-800 border">
-      <div className="relative flex-1">
-        {imageData ? (
+      <div className="relative w-60">
+      <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
+      
+        {/* {imageData ? (
           <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
         ) : (
           <Image
@@ -20,7 +22,7 @@ function AdminCabinCard({ cabin }) {
             alt={`Cabin ${name}`}
             className="border-r border-primary-800 object-cover"
           />
-        )}
+        )} */}
 
         {/* <img src={`data:image/png;base64,${imageData}`} alt="Test Image" /> */}
       </div>
@@ -36,7 +38,7 @@ function AdminCabinCard({ cabin }) {
               Capacity <span className="font-bold">{maxCapacity}</span>
             </p>
             <p className="text-lg text-primary-200">
-              Discount <span className="font-bold">{discount && 0}</span>
+              Discount <span className="font-bold">{discount || 0}</span>
             </p>
             <p className="text-lg text-primary-200">
               Price <span className="font-bold">{regularPrice}</span>
