@@ -1,5 +1,6 @@
 import SubmitButton from '@/components/SubmitButton';
-import { getSettingsServer } from '@/lib/actions';
+import { getSettingsServer, updateSettings} from '@/lib/actions';
+// import { updateSettings } from '@/lib/cabin-action';
 import React from 'react'
 
 const page = async () => {
@@ -12,8 +13,15 @@ const page = async () => {
     } = await getSettingsServer();
 
   return (
-    <form
-        // action={updateCabin}
+    <section>
+      <div className="flex items-center justify-between gap-4">
+      <h3 className="font-semibold text-2xl text-accent-400 mb-7">
+        Update settings
+      </h3>
+      </div>
+
+      <form
+        action={updateSettings}
         className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
       >
 
@@ -71,6 +79,7 @@ const page = async () => {
 
         </div>
       </form>
+    </section>
   )
 }
 

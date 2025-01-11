@@ -1,12 +1,28 @@
-import { auth } from "@/lib/auth";
-import Link from "next/link";
+'use client'
 
-export default async function Navigation() {
-  const session = await auth()
+// import { auth } from "@/lib/auth";
+import Link from "next/link";
+import {  useState } from "react";
+
+export default function MobileNavigation({session}) {
+  const [isOpen , setIsOpen] = useState(false)
+
+  // const session = await auth()
+
+
+  function handleToggle(){
+    console.log(isOpen , "toggle")
+    setIsOpen(() => !isOpen )
+  }
 
   return (
-    <nav className="z-10 text-xl hidden">
-      <ul className="flex gap-6 2md:gap-12 lg:gap-16 items-center">
+    <nav className="text-xl overflow-hidden pt-8 z-[100]" onClick={handleToggle}>
+      <button onClick={handleToggle} className="cursor-pointer" >Open</button>
+
+      {/* ${isOpen ? "translate-x-[0%]" : "translate-x-[100%]" }` */}
+
+      <ul className={`flex flex-col gap-6 2md:gap-12 lg:gap-16 items-center fixed top-0 right-0 transition-all bg-neutral-600 h-screen p-8 pt-12 ${isOpen ? "translate-x-[0%]" : "translate-x-[100%]"} `}>
+      <button onClick={handleToggle} className="cursor-pointer" >Close</button>
         {session?.user?.admin && <li>
           <Link href="/admin" className="hover:text-accent-400 transition-colors">
             Admin
