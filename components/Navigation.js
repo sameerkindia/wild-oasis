@@ -5,7 +5,7 @@ export default async function Navigation() {
   const session = await auth()
 
   return (
-    <nav className="z-10 text-xl hidden">
+    <nav className="z-10 text-xl max-2md:hidden">
       <ul className="flex gap-6 2md:gap-12 lg:gap-16 items-center">
         {session?.user?.admin && <li>
           <Link href="/admin" className="hover:text-accent-400 transition-colors">
