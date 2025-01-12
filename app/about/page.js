@@ -19,20 +19,12 @@ export const metadata = {
 
 export default async function Page() {
 
-  // const cabins = await getCabins();
-
-  const session = auth()
-
-  console.log(session.user , " this is from about")
-
   const cabins = await getAllCabin()
 
-  // let totalCabins = cabins.length;
-
   return (
-    <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
+    <div className="flex flex-col gap-6 sm:grid grid-cols-5 sm:gap-x-24 sm:gap-y-32 text-lg items-center">
       <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+        <h1 className="text-3xl sm:text-4xl mb-5 sm:mb-10 text-accent-400 font-medium">
           Welcome to The Wild Oasis
         </h1>
 
@@ -58,7 +50,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="col-span-2">
+      <div className="col-span-2 max-sm:mb-8">
         <Image
           src={image1}
           alt="Family sitting around a fire pit in front of cabin"
@@ -70,7 +62,7 @@ export default async function Page() {
       </div>
 
       <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+        <h1 className="text-3xl sm:text-4xl mb-5 sm:mb-10 text-accent-400 font-medium">
           Managed by our family since 1962
         </h1>
 
