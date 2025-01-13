@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  /* --rdp-gradient-direction */
+  /* --rdp-accent-color : red; */
+}
+
 @layer components {
   .spinner {
     margin: 3.2rem auto 1.6rem;
@@ -41,4 +46,20 @@
 
 body{
   overflow-x: hidden;
+}
+
+.rdp-range_middle{
+  background-color: #C69963 !important;
+}
+
+/* .rdp-range_middle .rdp-day_button{
+  color: #99B0C7 !important;
+} */
+
+.rdp-range_start{
+  background: linear-gradient(90deg, transparent 50%, #C69963 50%) !important;
+}
+
+.rdp-range_end{
+  background: linear-gradient(-90deg, transparent 50%, #C69963 50%) !important;
 }

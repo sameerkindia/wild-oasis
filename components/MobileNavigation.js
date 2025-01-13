@@ -8,10 +8,7 @@ import SignOutButton from "./SignOutButton";
 export default function MobileNavigation({ session }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // const session = await auth()
-
   function handleToggle() {
-    console.log(isOpen, "toggle");
     setIsOpen(() => !isOpen);
   }
 
@@ -25,13 +22,13 @@ export default function MobileNavigation({ session }) {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
-          class="size-8"
+          className="size-8"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
@@ -39,7 +36,7 @@ export default function MobileNavigation({ session }) {
 
       <div className={`w-full fixed top-0 right-0 transition-all bg-stone-800 h-screen p-8 pt-12 ${
           isOpen ? "translate-x-[0%]" : "translate-x-[100%]"
-        }`}>
+        }`} onClick={handleToggle}>
       <ul
         className={`w-3/5 sm:w-2/5 flex flex-col gap-6 2md:gap-12 lg:gap-16 fixed top-0 right-0 transition-all bg-neutral-600 h-screen p-8 pt-16 ${
           isOpen ? "translate-x-[0%]" : "translate-x-[100%]"
@@ -50,13 +47,13 @@ export default function MobileNavigation({ session }) {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
-            class="size-8"
+            className="size-8"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M6 18 18 6M6 6l12 12"
             />
           </svg>
