@@ -1,5 +1,3 @@
-// import AdminNavigation from "@/components/adminNavigation";
-// import SideNavigation from "@/components/SideNavigation";
 
 import AdminNavigation from "@/components/AdminNavigation";
 import AdminRoute from "@/components/AdminRoute";
@@ -11,7 +9,7 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <AdminRoute>
-      <div className="grid grid-cols-[16rem_1fr] h-full gap-12">
+      <div className="flex gap-4 2md:gap-12 2md:grid grid-cols-[16rem_1fr] h-full relative">
         <AdminNavigation />
         <div className="py-1">{children}</div>
       </div>
