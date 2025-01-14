@@ -39,13 +39,7 @@ function SideNavigation() {
 
   return (
     <>
-      <nav
-        className={`border-r border-primary-900 absolute 2md:hidden z-10`}
-      >
-        <button
-          className="absolute -top-8 cursor-pointer"
-          onClick={handleToggle}
-        >
+      <button className="absolute -top-8 cursor-pointer 2md:hidden" onClick={handleToggle}>
           {isOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,14 +71,19 @@ function SideNavigation() {
               />
             </svg>
           )}
-        </button>
+      </button>
+      <nav
+        className={`border-r border-primary-900 max-2md:absolute 2md:hidden z-10 h-full w-full ${
+          isOpen ? "translate-x-[0%]" : "translate-x-[-120%]"
+        }`} onClick={handleToggle}
+      >
         <ul
-          className={`flex flex-col gap-2 h-full text-lg transition-all py-8 px-4 ${
+          className={`flex flex-col gap-2 h-min w-max text-lg transition-all py-8 px-4 ${
             isOpen ? "translate-x-[0%]" : "translate-x-[-120%]"
           } bg-neutral-600`}
         >
           {navLinks.map((link) => (
-            <li key={link.name}>
+            <li key={link.name} onClick={handleToggle}>
               <Link
                 className={`py-3 px-5 hover:bg-primary-900 hover:text-primary-100 transition-colors flex items-center gap-4 font-semibold text-primary-200 ${
                   pathname === link.href ? "bg-primary-900" : ""

@@ -27,7 +27,7 @@ export default async function Page({ params }) {
 
       <form
         action={updateCabin}
-        className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+        className="bg-primary-900 py-8 px-6 sm:px-10 2md:px-12 text-sm sm:text-lg  flex gap-6 flex-col"
       >
         <input className="hidden" name="_id" value={id} />
 

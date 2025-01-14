@@ -36,7 +36,14 @@ function DateSelector({ settings, bookedDates, cabin }) {
   // SETTINGS
   const {minBookingLength, maxBookingLength} = settings;
 
+  console.log(+minBookingLength + 1 , "this was min booking")
+  // console.log(maxBookingLength , "this was max booking")
+
+
   // console.log('cabin from cabin[id] ', cabin)
+
+  // min={minBookingLength + 1}
+  
 
   return (
     <div className="flex flex-col justify-between">
@@ -45,7 +52,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
         mode="range"
         onSelect={setRange}
         selected={displayRange}
-        min={minBookingLength + 1}
+        min={+minBookingLength + 1}
         max={maxBookingLength}
         fromMonth={new Date()}
         fromDate={new Date()}
@@ -55,8 +62,8 @@ function DateSelector({ settings, bookedDates, cabin }) {
         disabled={(curDate)=> isPast(curDate) || bookedDates.some((date)=> isSameDay(date, curDate))}
       />
 
-      <div className="flex items-center justify-between px-4 sm:px-8 bg-accent-500 text-primary-800 sm:h-[72px]">
-        <div className="flex items-baseline gap-4 sm:gap-6">
+      <div className="flex items-center justify-between px-4 sm:px-8 bg-accent-500 text-primary-800 min-h-[72px]">
+        <div className="flex items-baseline gap-4 sm:gap-6 flex-wrap">
           <p className="flex gap-2 items-baseline">
             {discount > 0 ? (
               <>
@@ -85,7 +92,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
 
         {range.from || range.to ? (
           <button
-            className="border border-primary-800 py-2 px-4 text-sm font-semibold max-sm:mt-auto"
+            className="border border-primary-800 py-2 px-4 text-sm font-semibold max-sm:mb-auto"
             onClick={resetRange}
           >
             Clear

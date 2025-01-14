@@ -5,20 +5,17 @@ import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 
 function UpdateProfileForm({ guest, children }) {
-  // const countryFlag = "pt.jpg";
-  // const nationality = "portugal";
-  // console.log(guest);
 
-  const { fullName, email, natinoality, nationalID, countryFlag } = guest;
+  const { name, email, natinoality, nationalID, countryFlag } = guest;
 
   return (
-    <form action={updateGuest} className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+    <form action={updateGuest} className="bg-primary-900 py-8 px-6 sm:px-10 2md:px-12 text-sm sm:text-lg flex gap-6 flex-col">
       <div className="space-y-2">
         <label>Full name</label>
         <input
           disabled
-          defaultValue={fullName}
-          name="fullName"
+          defaultValue={name}
+          name="name"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>

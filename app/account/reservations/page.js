@@ -8,12 +8,6 @@ export default async function Page() {
   const session = await auth();
   const bookings = await getGuestBookings(session.user.guestId)
 
-  // const plainBookings = JSON.parse(JSON.stringify(bookings))
-
-  // console.log("Guest bookings ", bookings)
-
-  // CHANGE
-  // const bookings = [];
 
   return (
     <div>
