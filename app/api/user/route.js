@@ -56,7 +56,7 @@ export async function POST(request) {
       return new Response(
         JSON.stringify({
           success: true,
-          user: result, // `ops` is used in older MongoDB versions; adjust based on your driver version.
+          user: result, 
         }),
         { status: 201, headers: { "Content-Type": "application/json" } }
       );

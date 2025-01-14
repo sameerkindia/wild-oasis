@@ -11,7 +11,7 @@ export default function Layout({ children }) {
     <AdminRoute>
       <div className="flex gap-4 2md:gap-12 2md:grid grid-cols-[16rem_1fr] h-full relative">
         <AdminNavigation />
-        <div className="py-1">{children}</div>
+        <div className="py-1 max-2md:grow">{children}</div>
       </div>
     </AdminRoute>
   );

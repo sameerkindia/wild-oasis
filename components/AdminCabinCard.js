@@ -9,22 +9,9 @@ function AdminCabinCard({ cabin }) {
   let imageData = image?.data?.toString("base64");
 
   return (
-    <div className="flex border-primary-800 border">
-      <div className="relative w-60">
+    <div className="flex border-primary-800 border max-sm:flex-col">
+      <div className="relative max-sm:h-60 w-full sm:w-60">
       <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
-      
-        {/* {imageData ? (
-          <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
-        ) : (
-          <Image
-            src={image}
-            fill
-            alt={`Cabin ${name}`}
-            className="border-r border-primary-800 object-cover"
-          />
-        )} */}
-
-        {/* <img src={`data:image/png;base64,${imageData}`} alt="Test Image" /> */}
       </div>
 
       <div className="flex-grow">

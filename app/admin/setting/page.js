@@ -12,24 +12,24 @@ const page = async () => {
 
   return (
     <section>
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex justify-between gap-4">
       <h3 className="font-semibold text-2xl text-accent-400 mb-7">
         Setting For Booking
       </h3>
       <Link href='/admin/setting/edit'>Edit</Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        <p className="flex gap-4 text-lg text-primary-200">
+      <div className="flex flex-col sm:grid grid-cols-2 gap-4 mt-6 sm:mt-4 2md:mt-0">
+        <p className="flex gap-4 text-lg text-primary-200 max-sm:justify-between">
           Breakfast Price <span className="font-bold">{breakfastPrice}</span>
         </p>
-        <p className="flex gap-4 text-lg text-primary-200">
+        <p className="flex gap-4 text-lg text-primary-200 max-sm:justify-between">
         Min Booking Length <span className="font-bold">{minBookingLength}</span>
         </p>
-        <p className="flex gap-4 text-lg text-primary-200">
+        <p className="flex gap-4 text-lg text-primary-200 max-sm:justify-between">
         Max Booking Length <span className="font-bold">{maxBookingLength}</span>
         </p>
-        <p className="flex gap-4 text-lg text-primary-200">
+        <p className="flex gap-4 text-lg text-primary-200 max-sm:justify-between">
         Max Guest Per Booking <span className="font-bold">{maxGuestPerBooking}</span>
         </p>
       </div>
