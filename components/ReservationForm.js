@@ -9,8 +9,8 @@ function ReservationForm({ cabin, user }) {
   const { range, resetRange } = useReservation();
   const { maxCapacity, regularPrice, discount, _id } = cabin;
 
-  const startDate = range.to;
-  const endDate = range.from;
+  const startDate = range?.to;
+  const endDate = range?.from;
 
   const numNights = differenceInDays(startDate, endDate);
   const cabinPrice = numNights * (regularPrice - discount);
@@ -31,17 +31,17 @@ function ReservationForm({ cabin, user }) {
   return (
     <div className="scale-[1.01]">
       <div className="bg-primary-800 text-primary-300 px-6 sm:px-16 py-2 flex justify-between items-center">
-        <p>Logged in as</p>
+        <p className="max-ms:text-xs">Logged in as</p>
 
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-2 ms:gap-4 items-center">
           <img
             // Important to display google profile images
             referrerPolicy="no-referrer"
-            className="h-8 rounded-full"
+            className="h-6 ms:h-8 rounded-full"
             src={user.image}
             alt={user.name}
           />
-          <p>{user.name}</p>
+          <p className="max-ms:text-xs">{user.name}</p>
         </div>
       </div>
 
@@ -51,14 +51,14 @@ function ReservationForm({ cabin, user }) {
           await createBookingWithData(formData);
           resetRange();
         }}
-        className="bg-primary-900 py-10 px-6 sm:px-16 text-base sm:text-lg flex gap-5 flex-col"
+        className="bg-primary-900 py-10 px-6 sm:px-16 text-sm ms:text-base sm:text-lg flex gap-5 flex-col"
       >
         <div className="space-y-2">
           <label htmlFor="numGuests">How many guests?</label>
           <select
             name="numGuests"
             id="numGuests"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-3 ms:px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
             required
           >
             <option value="" key="">
@@ -79,14 +79,14 @@ function ReservationForm({ cabin, user }) {
           <textarea
             name="observations"
             id="observations"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-3 ms:px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
             placeholder="Any pets, allergies, special requirements, etc.?"
           />
         </div>
 
         <div className="flex justify-end items-center gap-6">
           {!(startDate && endDate) ? (
-            <p className="text-primary-300 text-base">
+            <p className="text-primary-300 text-sm ms:text-base">
               Start by selecting dates
             </p>
           ) : (

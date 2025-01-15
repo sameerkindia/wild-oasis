@@ -73,12 +73,12 @@ function SideNavigation() {
           )}
       </button>
       <nav
-        className={`border-r border-primary-900 max-2md:absolute 2md:hidden z-10 h-full w-full ${
+        className={`max-2md:absolute 2md:hidden z-10 h-full w-full ${
           isOpen ? "translate-x-[0%]" : "translate-x-[-120%]"
         }`} onClick={handleToggle}
       >
         <ul
-          className={`flex flex-col gap-2 h-min w-max text-lg transition-all py-8 px-4 ${
+          className={`flex flex-col gap-2 h-min w-max text-sm ms:text-base sm:text-lg transition-all py-8 px-4 ${
             isOpen ? "translate-x-[0%]" : "translate-x-[-120%]"
           } bg-neutral-600`}
         >

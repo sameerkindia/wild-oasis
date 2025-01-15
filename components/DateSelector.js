@@ -8,10 +8,10 @@ import { useReservation } from "./ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
   return (
-    range.from &&
-    range.to &&
-    datesArr.some((date) =>
-      isWithinInterval(date, { start: range.from, end: range.to })
+    range?.from &&
+    range?.to &&
+    datesArr?.some((date) =>
+      isWithinInterval(date, { start: range?.from, end: range?.to })
     )
   );
 }
@@ -30,7 +30,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
   // const range = { from: null, to: null };
 
   const {regularPrice, discount} = cabin
-  const numNights = differenceInDays(displayRange.to , displayRange.from)
+  const numNights = differenceInDays(displayRange?.to , displayRange?.from)
   const cabinPrice = numNights * (regularPrice - discount)
 
   // SETTINGS
@@ -62,7 +62,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
         disabled={(curDate)=> isPast(curDate) || bookedDates.some((date)=> isSameDay(date, curDate))}
       />
 
-      <div className="flex items-center justify-between px-4 sm:px-8 bg-accent-500 text-primary-800 min-h-[72px]">
+      <div className="flex items-center justify-between max-ms:py-2 px-4 sm:px-8 bg-accent-500 text-primary-800 min-h-[72px]">
         <div className="flex items-baseline gap-4 sm:gap-6 flex-wrap">
           <p className="flex gap-2 items-baseline">
             {discount > 0 ? (
@@ -90,7 +90,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
           ) : null}
         </div>
 
-        {range.from || range.to ? (
+        {range?.from || range?.to ? (
           <button
             className="border border-primary-800 py-2 px-4 text-sm font-semibold max-sm:mb-auto"
             onClick={resetRange}

@@ -12,16 +12,10 @@ function CabinCard({ cabin }) {
     <div className="flex 2md:flex-row flex-col border-primary-800 border">
       <div className="relative h-40 2md:h-[unset] w-full 2md:w-40">
         <Image src={`data:image/png;base64,${imageData}`} fill alt={`Cabin ${name}`} className="border-r border-primary-800 object-cover" />
-      {/* <Image
-        src={image}
-        fill
-        alt={`Cabin ${name}`}
-        className="border-r border-primary-800 object-cover"
-      /> */}
       </div>
       
       <div className="flex-grow">
-        <div className="pt-5 pb-4 px-7 bg-primary-950">
+        <div className="pt-5 pb-4 px-4 ms:px-7 bg-primary-950">
           <h3 className="text-accent-500 font-semibold text-xl desktop:text-2xl mb-3">
             {name}
           </h3>
