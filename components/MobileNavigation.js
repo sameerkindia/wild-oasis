@@ -14,7 +14,7 @@ export default function MobileNavigation({ session }) {
 
   return (
     <nav
-      className="text-xl overflow-hidden z-[100] 2md:hidden"
+      className="text-base ms:text-lg sm:text-xl overflow-hidden z-[100] 2md:hidden"
       onClick={handleToggle}
     >
       <button onClick={handleToggle} className="cursor-pointer">
@@ -109,7 +109,7 @@ export default function MobileNavigation({ session }) {
           )}
         </li>
         <li className='mt-auto'>
-          <SignOutButton iconClass={"w-8 h-8 text-[#d4dee7]"} />
+          <SignOutButton iconClass={"w-8 h-8 text-[#d4dee7]"} customClass={"max-ms:p-0"} />
         </li>
       </ul>
       </div>
