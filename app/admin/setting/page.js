@@ -1,4 +1,5 @@
 import { getSettingsServer } from "@/lib/actions";
+import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import React from "react";
 
@@ -16,7 +17,7 @@ const page = async () => {
       <h3 className="font-semibold text-2xl text-accent-400 mb-7">
         Setting For Booking
       </h3>
-      <Link href='/admin/setting/edit'>Edit</Link>
+      <Link href='/admin/setting/edit'><PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" /></Link>
       </div>
 
       <div className="flex flex-col sm:grid grid-cols-2 gap-4 mt-6 sm:mt-4 2md:mt-0">

@@ -22,7 +22,7 @@ const page = async () => {
 
       <form
         action={updateSettings}
-        className="bg-primary-900 py-8 px-6 sm:px-10 2md:px-12 text-sm sm:text-lg flex gap-6 flex-col"
+        className="bg-primary-900 py-6 ms:py-8 px-4 ms:px-6 sm:px-10 2md:px-12 text-sm sm:text-lg flex gap-6 flex-col"
       >
 
         <div className="space-y-2">
