@@ -15,19 +15,19 @@ function AdminCabinCard({ cabin }) {
       </div>
 
       <div className="flex-grow">
-        <div className="pt-5 pb-4 px-7 bg-primary-950">
-          <h3 className="text-accent-500 font-semibold text-2xl mb-3">
+        <div className="pt-5 pb-4 px-4 ms:px-7 bg-primary-950">
+          <h3 className="text-accent-500 font-semibold text-xl ms:text-2xl mb-3">
             Cabin {name}
           </h3>
 
           <div className="flex flex-col gap-3 mb-2">
-            <p className="text-lg text-primary-200">
+            <p className="text-base ms:text-lg text-primary-200">
               Capacity <span className="font-bold">{maxCapacity}</span>
             </p>
-            <p className="text-lg text-primary-200">
+            <p className="text-base ms:text-lg text-primary-200">
               Discount <span className="font-bold">{discount || 0}</span>
             </p>
-            <p className="text-lg text-primary-200">
+            <p className="text-base ms:text-lg text-primary-200">
               Price <span className="font-bold">{regularPrice}</span>
             </p>
           </div>

@@ -63,3 +63,27 @@ body{
 .rdp-range_end{
   background: linear-gradient(-90deg, transparent 50%, #C69963 50%) !important;
 }
+
+
+
+@media (max-width: 400px) {
+  .rdp-day{
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 14px !important;
+  }
+  .rdp-day_button{
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 14px !important;
+  }
+
+  .rdp-dropdown_root{
+    font-size: 14px !important;
+  }
+
+  .rdp-chevron{
+    width: 18px !important;
+    height: 18px !important;
+  }
+}

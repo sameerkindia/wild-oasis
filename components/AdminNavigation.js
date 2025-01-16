@@ -2,6 +2,7 @@
 
 import {
   CalendarDaysIcon,
+  Cog8ToothIcon,
   HomeIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
@@ -29,7 +30,7 @@ const navLinks = [
   {
     name: "Create Cabin",
     href: "/admin/create-cabin",
-    icon: <UserIcon className="h-5 w-5 text-primary-600" />,
+    icon: <Cog8ToothIcon className="h-5 w-5 text-primary-600" />,
   },
 ];
 

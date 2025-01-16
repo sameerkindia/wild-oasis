@@ -22,12 +22,12 @@ export default async function Page({ params }) {
   return (
     <div>
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
-        Edit Cabin Id #{id}
+        Edit Cabin<span className="max-ms:hidden"> Id #{id}</span>
       </h2>
 
       <form
         action={updateCabin}
-        className="bg-primary-900 py-8 px-6 sm:px-10 2md:px-12 text-sm sm:text-lg  flex gap-6 flex-col"
+        className="bg-primary-900 py-6 ms:py-8 px-4 ms:px-6 sm:px-10 2md:px-12 text-sm sm:text-lg flex gap-6 flex-col"
       >
         <input className="hidden" name="_id" value={id} />
 
