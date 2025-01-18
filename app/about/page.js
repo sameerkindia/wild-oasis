@@ -2,10 +2,7 @@ import Image from "next/image";
 
 import image1 from '/public/about-1.jpg'
 import image2 from '/public/about-2.jpg'
-import { getCabins } from "@/lib/data-service";
 import { getAllCabin } from "@/lib/actions";
-import { auth } from "@/lib/auth";
-
 
 export const revalidate = 86400;
 
@@ -13,9 +10,6 @@ export const metadata = {
   title : 'About'
 }
 
-// export const config = {
-//   runtime: "nodejs", // Use Node.js runtime
-// };
 
 export default async function Page() {
 
