@@ -1,38 +1,3 @@
-// import { connectToDatabase } from "@/lib/mongooes";
-
-// export async function POST(req, res) {
-//   try {
-//     const client = await connectToDatabase();
-//     const db = client.db("wild-oasis");
-//     // const usersCollection = db.collection('users');
-
-//     if (method === 'POST') {
-//       // Store user in the database
-//       const { email, name } = req.body;
-//       // const result = await db.collection("guests").insertOne(newGuest);
-//       const userExists = await db.collection("guests").findOne({ email });
-
-//       if (!userExists) {
-//         // const result = await usersCollection.insertOne({ email, name });
-//         const result = await db.collection("guests").insertOne({ email, name });
-//         return res.status(201).json({ success: true, user: result.ops[0] });
-//       }
-
-//       return res.status(200).json({ success: true, message: 'User already exists' });
-//     }
-
-//     if (method === 'GET') {
-//       // Fetch all users (example)
-//       const users = await db.collection("guests").find({}).toArray();
-//       return res.status(200).json({ success: true, users });
-//     }
-
-//     return res.status(405).end(); // Method Not Allowed
-//   } catch (error) {
-//     console.error('Database Error:', error);
-//     return res.status(500).json({ success: false, error: 'Database Error' });
-//   }
-// }
 
 
 import { auth } from "@/lib/auth";
