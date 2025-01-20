@@ -1,5 +1,3 @@
-
-
 import { auth } from "@/lib/auth";
 import { connectToDatabase } from "@/lib/mongooes";
 
@@ -8,7 +6,6 @@ export async function POST(request) {
     const client = await connectToDatabase();
     const db = client.db("wild-oasis");
 
-    // Parse the request body
     const { email, name } = await request.json();
 
     // Check if the user already exists
