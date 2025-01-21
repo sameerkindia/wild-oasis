@@ -1,17 +1,18 @@
 import SubmitButton from "@/components/SubmitButton";
-import { getGuestBookings, getOneBooking, getOneCabin, updateBooking } from "@/lib/actions";
+import {
+  getGuestBookings,
+  getOneBooking,
+  getOneCabin,
+  updateBooking,
+} from "@/lib/actions";
 import { getBooking, getCabin } from "@/lib/data-service";
 
-export default async function Page({params}) {
-  const {bookingId} = params
+export default async function Page({ params }) {
+  const { bookingId } = params;
 
-  // const {numGuests, observations, cabinId} = await getBooking(bookingId)
-  const {numGuests, observations, cabinId} = await getOneBooking(bookingId)
-  console.log("cabinID " , cabinId)
-  const {maxCapacity} = await getOneCabin(cabinId)
-
-  // CHANGE
-  // const maxCapacity = cabin.maxCapacity;
+  const { numGuests, observations, cabinId } = await getOneBooking(bookingId);
+  console.log("cabinID ", cabinId);
+  const { maxCapacity } = await getOneCabin(cabinId);
 
   return (
     <div>
@@ -19,7 +20,10 @@ export default async function Page({params}) {
         Edit Reservation <span className=" max-ms:hidden">#{bookingId}</span>
       </h2>
 
-      <form action={updateBooking} className="bg-primary-900 py-6 ms:py-8 px-4 ms:px-6 sm:px-10 2md:px-12 text-sm sm:text-lg flex gap-6 flex-col">
+      <form
+        action={updateBooking}
+        className="bg-primary-900 py-6 ms:py-8 px-4 ms:px-6 sm:px-10 2md:px-12 text-sm sm:text-lg flex gap-6 flex-col"
+      >
         <input className="hidden" name="bookingId" value={bookingId} />
         <div className="space-y-2">
           <label htmlFor="numGuests">How many guests?</label>
@@ -53,12 +57,9 @@ export default async function Page({params}) {
         </div>
 
         <div className="flex justify-end items-center gap-6">
-
-            <SubmitButton pendingLabel='Updating...'>Update reservation</SubmitButton>
-
-          {/* <button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
+          <SubmitButton pendingLabel="Updating...">
             Update reservation
-          </button> */}
+          </SubmitButton>
         </div>
       </form>
     </div>
