@@ -1,8 +1,6 @@
 import ReservationList from "@/components/ReservationList";
 import { getGuestBookings } from "@/lib/actions";
 import { auth } from "@/lib/auth";
-// import ReservationCard from "../../../components/ReservationCard";
-import { getBookings } from "@/lib/data-service";
 
 export default async function Page() {
   const session = await auth();
